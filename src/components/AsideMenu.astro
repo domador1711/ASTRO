@@ -3,6 +3,8 @@ import Library from "./Icons/Library.astro";
 import Home from "./Icons/Home.astro";
 import Search from "./Icons/Search.astro";
 import SideMenuItem from "./SideMenuItem.astro";
+import SideMenuCard from "./SideMenuCard.astro";
+import {playlists} from "@/lib/data"
 
 
 ---
@@ -17,5 +19,14 @@ import SideMenuItem from "./SideMenuItem.astro";
     Search
     </SideMenuItem>
     </ul></div> 
-<Library/> 
+    <div class="bg-zinc-900 rounded-lg  p-2 flex-1">
+      <ul>  <SideMenuItem href="/library"><Library/> tu biblioteca</SideMenuItem>
+      {
+        playlists.map((playlist)=><SideMenuCard playlist={playlist}/> )
+      }
+      </ul> 
+        
+        
+    </div>
+
 </nav>
